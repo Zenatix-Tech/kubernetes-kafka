@@ -14,7 +14,7 @@ spec:
         app: burrow
       annotations:
         prometheus.io/scrape: "true"
-        prometheus.io/port: "8080"
+        prometheus.io/port: "5556"
     spec:
       containers:
       - name: burrow
@@ -37,14 +37,14 @@ spec:
         image: solsson/burrow-exporter@sha256:7db7cb4d09df51c786c338d1a60d57b02f69efed294e4db68c1c5ba04d22a3a8
         ports:
         - name: prometheus
-          containerPort: 8080
+          containerPort: 5556
         env:
         - name: BURROW_ADDR
           value: http://localhost:8000
         - name: API_VERSION
           value: "3"
         - name: METRICS_ADDR
-          value: 0.0.0.0:8080
+          value: 0.0.0.0:5556
         - name: INTERVAL
           value: "30"
       - name: dashboard

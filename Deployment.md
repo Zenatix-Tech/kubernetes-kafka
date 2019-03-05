@@ -3,11 +3,18 @@
 ```bash
 kubectl apply -f configure/aks-storageclass-zookeeper-managed.yml
 kubectl apply -f configure/aks-storageclass-broker-managed.yml
+
+#Delete
+kubectl delete -f configure/aks-storageclass-zookeeper-managed.yml
+kubectl delete -f configure/aks-storageclass-broker-managed.yml
 ```
 
 **2. Configure Namespace**
 ```bash
 kubectl apply -f 00-namespace.yml
+
+#Delete
+kubectl delete -f 00-namespace.yml
 ```
 
 **3. Configure persistent zookeeper**
@@ -16,6 +23,9 @@ kubectl apply -f zookeeper/10zookeeper-config.yml
 kubectl apply -f zookeeper/20pzoo-service.yml
 kubectl apply -f zookeeper/30service.yml
 kubectl apply -f zookeeper/50pzoo.yml
+
+#Delete
+kubectl delete -f zookeeper/
 ```
 
 **4. Configure kafka**
